@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "gcz测试页面";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Head{
+    <script type="text/javascript" src="@Url.Content("~/Sources/Areas/Menu/Menu.js")"></script>
+}
+
+<table class="layui-hide" id="TabShowData" lay-filter="TabShowData"></table>
+<table class="layui-hide" id="ShowAllData" lay-filter="ShowAllData"></table>
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="Add">新增</button>
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+        <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+    </div>
+</script>
+
+<script type="text/html" id="toolbarDemo2">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="Add2">新增</button>
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckData2">获取选中行数据</button>
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckLength2">获取选中数目</button>
+        <button class="layui-btn layui-btn-sm" lay-event="isAll2">验证是否全选</button>
+    </div>
+</script>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+

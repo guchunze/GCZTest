@@ -1,0 +1,115 @@
+{
+  "code": 0,
+  "msg": "ok",
+  "data": [
+    {
+      "IMENUID": 1,
+      "name": "xx",
+      "sex": "male",
+      "IUPMENUID": 0
+    },
+    {
+      "IMENUID": 2,
+      "name": "xx",
+      "sex": "male",
+      "IUPMENUID": 1
+    },
+    {
+      "IMENUID": 3,
+      "name": "xx",
+      "sex": "male",
+      "IUPMENUID": 1
+    },
+    {
+      "IMENUID": 4,
+      "name": "xx",
+      "sex": "male",
+      "IUPMENUID": 1
+    },
+    {
+      "IMENUID": 5,
+      "name": "xx",
+      "sex": "male",
+      "IUPMENUID": 0
+    },
+    {
+      "IMENUID": 6,
+      "name": "xx",
+      "sex": "male",
+      "IUPMENUID": 5
+    },
+    {
+      "IMENUID": 7,
+      "name": "xx",
+      "sex": "male",
+      "IUPMENUID": 5
+    },
+    {
+      "IMENUID": 8,
+      "name": "xx",
+      "sex": "male",
+      "IUPMENUID": 6
+    },
+    {
+      "IMENUID": 9,
+      "name": "xx",
+      "sex": "male",
+      "IUPMENUID": 6
+    },
+    {
+      "IMENUID": 10,
+      "name": "xx",
+      "sex": "male",
+      "IUPMENUID": 9
+    },
+    {
+      "IMENUID": 11,
+      "name": "xx",
+      "sex": "male",
+      "IUPMENUID": 9
+    },
+    {
+      "IMENUID": 12,
+      "name": "xx",
+      "sex": "male",
+      "IUPMENUID": 10
+    },
+    {
+      "IMENUID": 13,
+      "name": "xx",
+      "sex": "male",
+      "IUPMENUID": 10
+    },
+    {
+      "IMENUID": 14,
+      "name": "xx",
+      "sex": "male",
+      "IUPMENUID": 10
+    },
+    {
+      "IMENUID": 15,
+      "name": "xx",
+      "sex": "male",
+      "IUPMENUID": 13
+    },
+    {
+      "IMENUID": 16,
+      "name": "xx",
+      "sex": "male",
+      "IUPMENUID": 13
+    },
+    {
+      "IMENUID": 17,
+      "name": "xx",
+      "sex": "male",
+      "IUPMENUID": 16
+    },
+    {
+      "IMENUID": 18,
+      "name": "xx",
+      "sex": "male",
+      "IUPMENUID": 16
+    }
+  ],
+  "count": 18
+}

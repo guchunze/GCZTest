@@ -1,0 +1,31 @@
+﻿  .downpanel .layui-select-title span {
+            line-height: 38px;
+        }
+
+        /*继承父类颜色*/
+        .downpanel dl dd:hover {
+            background-color: inherit;
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            margin: 0 auto;
+        }
+
+        td {
+            font-size: 12px !important;
+        }
+
+        .layui-form-checkbox span {
+            height: 30px;
+        }
+
+        .layui-field-title {
+            border-top: 1px solid white;
+        }
+
+        table {
+            width: 100% !important;
+        }

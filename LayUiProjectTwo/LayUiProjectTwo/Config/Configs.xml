@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <category>
+    <configItem id="0" name="DataBase" value="OracleLink"/>
+    <configItem id="1" name="OracleLink" value="User ID=testdata; Password=testdata;Data Source=ORCL;Persist Security Info=False"/>
+    <configItem id="2" name="SqlServerLink" value="User ID=MTUSER; Password=MTPWD;Data Source=jjgisdb;Persist Security Info=False"/>
+   </category>
+</configuration> 

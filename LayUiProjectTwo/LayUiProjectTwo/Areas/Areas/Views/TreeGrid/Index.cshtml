@@ -1,0 +1,198 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tree-table</title>
+    <link href="~/TreeGrid/assets/common.css" rel="stylesheet" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+</head>
+<body>
+
+     <table id="table1" class="layui-table" lay-filter="table1"></table>
+    <!-- 操作列 -->
+    <script type="text/html" id="oper-col">
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+
+    <script type="text/html" id="toolbarDemo">
+        <div class="layui-btn-container">
+            <button class="layui-btn layui-btn-sm" lay-event="Add">新增</button>
+            <button class="layui-btn layui-btn-sm" lay-event="SearchData">查询</button>
+        </div>
+    </script>
+
+    <div id="fromAdd" style="display:none;width:400px" class="layui-form">
+        <form class="layui-form" action="" >
+        <br />
+            <div class="layui-form-item">
+                <label class="layui-form-label">名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="CNAME" required lay-verify="required" placeholder="请输入菜单名称" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">路径</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="CURL" required lay-verify="required" placeholder="访问路径" autocomplete="off" class="layui-input">
+                </div>
+                @*<div class="layui-form-mid layui-word-aux">辅助文字</div>*@
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">父节点</label>
+                <div class="layui-input-block">
+                    <select name="city" lay-verify="required">
+                        <option value=""></option>
+                        <option value="0">北京</option>
+                        <option value="1">上海</option>
+                        <option value="2">广州</option>
+                        <option value="3">深圳</option>
+                        <option value="4">杭州</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">文章栏目</label>
+                <div class="layui-input-inline">
+                    <div class="layui-unselect layui-form-select downpanel">
+                        <div class="layui-select-title">
+                            <span class="layui-input layui-unselect" id="treeclass">选择栏目</span>
+                            <input type="hidden" name="selectID" id="selectID" value="0">
+                            <i class="layui-edge"></i>
+                        </div>
+                        <dl class="layui-anim layui-anim-upbit">
+                            <dd>
+                                <ul id="classtree"></ul>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">排序</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="IORDER" required lay-verify="required" placeholder="排序" autocomplete="off" class="layui-input">
+                </div>
+                @*<div class="layui-form-mid layui-word-aux">辅助文字</div>*@
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">是否显示</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="IISAVAILABLE" lay-skin="switch">
+                </div>
+            </div>          
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formSubmit">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+        </div>
+        <script>
+
+            layui.config({
+                base: '../../TreeGrid/module/'
+            }).extend({
+                treetable: 'treetable-lay/treetable'
+            }).use(['table', 'form', 'element', 'treetable', 'layer', 'laydate'], function () {
+                var $ = layui.jquery;
+                var table = layui.table;
+                var form = layui.form;
+                var element = layui.element;
+                var treetable = layui.treetable;
+
+                // 渲染表格
+                var renderTable = function () {
+                    layer.load(2);
+                    treetable.render({
+                        treeColIndex: 2,
+                        treeSpid: -1,
+                        treeIdName: 'ID',
+                        treePidName: 'PID',
+                        elem: '#table1',
+                        toolbar: '#toolbarDemo',
+                        defaultToolbar: [],
+                        url: 'loadlist',
+                        page: false,
+                        cols: [[
+                            { type: 'numbers' },
+                            { field: 'ID', title: '标识', align: 'left' },
+                            { field: 'CNAME', title: '名称' },
+                            { field: 'CURL', title: '路径' },
+                            { field: 'PID', title: '父节点' },
+                            { field: 'IORDER', title: '排序' },
+                            {
+                                field: 'IISAVAILABLE', title: '是否显示', templet: function (item) {
+                                    if (item.IISAVAILABLE == '1') {
+                                        return '<input type="checkbox" checked="" name="open" lay-skin="switch" lay-text="显示|禁用">'
+                                    }
+                                    else {
+                                        return '<input type="checkbox" name="close" lay-skin="switch" lay-text="显示|禁用">'
+                                    }
+                                }
+                            },
+                            { templet: '#oper-col', title: '操作' }
+                        ]],
+                        done: function () {
+                            layer.closeAll('loading');
+                        }
+                    });
+                };
+
+                renderTable();
+
+
+                //头工具栏事件
+                table.on('toolbar(table1)', function (obj) {
+                    var checkStatus = table.checkStatus(obj.config.id);
+
+                    switch (obj.event) {
+                        case 'Add':
+                            //增加数据信息
+                            layer.open({
+                                type: 1
+                              , title: "数据添加" //不显示标题栏
+                              //, closeBtn: false
+                              , area: '450px;'
+                              , shade: 0.8
+                              , id: 'LAY_AddFrom' //设定一个id，防止重复弹出
+                              //, btn: ['确认', '取消']
+                              , btnAlign: 'c'
+                              , moveType: 1 //拖拽模式，0或者1
+                              , content: $('#fromAdd')
+                              , success: function (layero) {
+                                  var btn = layero.find('.layui-layer-btn');
+                              }, yes: function (index, layero) {
+                              }
+                            });
+
+                            break;
+                        case 'SearchData':
+                            //查询数据信息
+                            alert('SearchData');
+                            break;
+                    };
+
+                });
+
+                //监听提交
+                form.on('submit(formSubmit)', function (data) {
+                    var dataObj = data.field;
+                    var url = "TreeGrid/LoadMenu";
+                    var load = new Loading();
+                    load.GetAjaxQueryString(url, dataObj, function (Data) {
+                        console.info(Data)
+                    })
+                });
+
+            });
+        </script>
+</body>
+</html>

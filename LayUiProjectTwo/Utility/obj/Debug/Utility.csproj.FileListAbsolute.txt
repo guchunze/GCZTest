@@ -1,0 +1,7 @@
+D:\Information Document\Layui\案例\LayUiProjectTwo\Utility\bin\Debug\Utility.dll
+D:\Information Document\Layui\案例\LayUiProjectTwo\Utility\bin\Debug\Utility.pdb
+D:\Information Document\Layui\案例\LayUiProjectTwo\Utility\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.Min.dll
+D:\Information Document\Layui\案例\LayUiProjectTwo\Utility\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Information Document\Layui\案例\LayUiProjectTwo\Utility\obj\Debug\Utility.csprojResolveAssemblyReference.cache
+D:\Information Document\Layui\案例\LayUiProjectTwo\Utility\obj\Debug\Utility.dll
+D:\Information Document\Layui\案例\LayUiProjectTwo\Utility\obj\Debug\Utility.pdb

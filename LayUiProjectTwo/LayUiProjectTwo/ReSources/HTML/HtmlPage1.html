@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/GetUrl.js"></script>
+</head>
+
+<script type="text/javascript">
+
+
+		var dom = function () {
+
+		};
+		dom.PI = "";
+		dom.prototype.Show = function () {
+		    alert("Show Message");
+		};
+
+		dom.prototype.GetQueryString = function (name) {
+		    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		    var r = window.location.search.substr(1).match(reg);
+		    if (r != null) return decodeURI(r[2]);
+		    return null;
+		};
+        
+	    
+		var d = new dom();
+        
+		d.Show();
+	
+		var name = d.GetQueryString('name');
+		var id = d.GetQueryString('id');
+	    
+		function Person() {
+		    var name = "default";
+
+		    return {
+		        getName: function () {
+		            return name;
+		        },
+		        setName: function (newName) {
+		            name = newName;
+		        }
+		    }
+		};
+
+		var p = new Person();
+		p.setName("Tom");
+		alert(p.getName());
+
+		var Jack = function () { };
+		//继承自Person
+		Jack.prototype = new Person();
+		//添加私有方法
+		Jack.prototype.Say = function () {
+		    alert("Hello,my name is Jack");
+		};
+		var j = new Jack();
+		j.setName("Jack");
+		j.Say();
+		alert(j.getName());
+        
+        
+		window.onload = function () {
+		    $("#addname").val(name);
+		    $("#addid").val(id);
+		}
+
+
+</script>
+
+<body>
+    <label>测试URL中的name是：</label>
+    <input type="text" id="addname" />
+    <label>测试URL中的id是：</label>
+    <input type="text" id="addid" />
+
+</body>
+
+</html>

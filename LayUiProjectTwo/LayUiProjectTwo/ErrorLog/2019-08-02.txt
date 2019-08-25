@@ -1,0 +1,25 @@
+﻿
+
+用户名：			
+
+日志时间：			2019-08-02 15:33 33
+
+请求来源：			http://localhost/LayUiProjectTwo/Areas/Menu/Index
+
+IP地址：			::1
+
+错误页面：			http://localhost/LayUiProjectTwo/Areas/Menu/loadlistpage?page=1&limit=5&aaa=aaa
+
+日志内容：
+
+SqlPage-GetDataSet！ ||System.Data.OracleClient.OracleException (0x80131938): ORA-00942: table or view does not exist
+
+   在 System.Data.OracleClient.OracleConnection.CheckError(OciErrorHandle errorHandle, Int32 rc)
+   在 System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, Boolean needRowid, OciRowidDescriptor& rowidDescriptor, ArrayList& resultParameterOrdinals)
+   在 System.Data.OracleClient.OracleCommand.ExecuteScalarInternal(Boolean needCLStype, Boolean needRowid, OciRowidDescriptor& rowidDescriptor)
+   在 System.Data.OracleClient.OracleCommand.ExecuteScalar()
+   在 Microsoft.Practices.EnterpriseLibrary.Data.Database.DoExecuteScalar(DbCommand command)
+   在 Microsoft.Practices.EnterpriseLibrary.Data.Database.ExecuteScalar(DbCommand command)
+   在 Utility.SqlPage.GetDataSet(String selectTarget, String columns, String strWhere, String orderBy, Int32 page, Int32 rowsPerPage, Int32& tolalCount) 位置 D:\Information Document\Layui\案例\LayUiProjectTwo\Utility\SqlPage.cs:行号 54
+
+=========================================================

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="js/jquery-1.10.2.js"></script>
+    <title></title>
+    <style type="text/css">
+        input {
+            font-size: 15px;
+            width: 200px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <input id="inpt" type="text" value="请输入内容" />
+    <input id="clickb" type="button" value="点击看到提示" />
+    <input id="save" type="button" value="点击保存" />
+    <input id="delect" type="button" value="点击清除保存" />
+
+    <script type="text/javascript">
+
+//sessionStorage
+var getinfor = window.sessionStorage.getItem("inpt")
+$("#save").click(function(){
+window.sessionStorage.setItem("inpt",$("#inpt").val());
+});
+$("#clickb").click(function(){
+alert("您输入的内容是：" + getinfor);
+});
+$("#delect").click(function(){
+window.sessionStorage.removeItem("inpt");//清除缓存
+});
+
+//localstorage
+/*$("#save").click(function(){
+localStorage.setItem("inpt",$("#inpt").val());
+});
+$("#delect").click(function(){
+localStorage.removeItem("inpt");
+});
+$("#clickb").click(function(){
+alert("您输入的内容是：" + localStorage.getItem("inpt"));//清除缓存
+});
+*/
+    </script>
+</body>
+</html>
